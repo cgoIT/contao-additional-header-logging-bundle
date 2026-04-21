@@ -1,8 +1,8 @@
 services:
    _defaults:
       autoconfigure: true
-      autowire: true
-      public: false
 
-   Cgoit\AdditionalHeaderLoggingBundle\:
-      resource: ../src/*
+   cgoit.monolog.additional_headers_processor:
+      class: Cgoit\AdditionalHeaderLoggingBundle\Monolog\AdditionalHeadersProcessor
+      arguments:
+          - '@contao.framework'

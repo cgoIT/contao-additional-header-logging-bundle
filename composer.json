@@ -1,9 +1,9 @@
 {
   "name": "cgoit/contao-additional-header-logging-bundle",
-  "description": "Gives you the option to use a centralized robots.txt configuration for multiple contao installations.",
+  "description": "Extends the Contao log by adding configurable HTTP request headers for debugging and analysis.",
   "license": "LGPL-3.0-or-later",
   "type": "contao-bundle",
-  "version": "1.1.2",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Carsten Götzinger",
@@ -16,7 +16,7 @@
     "source": "https://github.com/cgoIT/contao-additional-header-logging-bundle"
   },
   "require": {
-    "php": "^8.2",
+    "php": "^8.3",
     "contao/core-bundle": "^5.7",
     "monolog/monolog": "^3.0",
     "symfony/config": "^7.2",

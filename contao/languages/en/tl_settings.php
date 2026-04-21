@@ -12,5 +12,5 @@ declare(strict_types=1);
 
 $GLOBALS['TL_LANG']['tl_settings']['logging_legend'] = 'Logging Settings';
 
-$GLOBALS['TL_LANG']['tl_settings']['loggingHeaderNames']['0'] = 'HTTP headers to be logged';
-$GLOBALS['TL_LANG']['tl_settings']['loggingHeaderNames']['1'] = 'A list of HTTP header names to be logged. Multiple headers must be separated by commas. Example: Content-Type, Content-Length';
+$GLOBALS['TL_LANG']['tl_settings']['logging_header_names']['0'] = 'HTTP headers to be logged';
+$GLOBALS['TL_LANG']['tl_settings']['logging_header_names']['1'] = 'A list of HTTP header names to be logged. Multiple headers must be separated by commas. Example: Content-Type, Content-Length';

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Cgoit\AdditionalHeaderLoggingBundle\Monolog;
 
+use Contao\Config;
+use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\StringUtil;
 use Monolog\LogRecord;
 use Monolog\Processor\ProcessorInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -15,11 +18,27 @@ class AdditionalHeadersProcessor implements ProcessorInterface, EventSubscriberI
 {
     private Request|null $request = null;
 
+    /**
+     * @var array<string>|null
+     */
+    private array|null $httpHeaderNames = null;
+
+    public function __construct(ContaoFramework $framework)
+    {
+        $framework->initialize();
+
+        $config = $framework->getAdapter(Config::class);
+        $this->httpHeaderNames = StringUtil::trimsplit(',', strtolower((string) $config->get('logging_header_names')));
+    }
+
     public function __invoke(LogRecord $record): LogRecord
     {
-        if ($this->request) {
-            $record->extra['request_uri'] = $this->request->getUri();
-            $record->extra['request_method'] = $this->request->getMethod();
+        if ($this->request && !empty($this->httpHeaderNames)) {
+            foreach ($this->httpHeaderNames as $httpHeaderName) {
+                if ($this->request->headers->has($httpHeaderName)) {
+                    $record->extra[$httpHeaderName] = $this->request->headers->get($httpHeaderName);
+                }
+            }
         }
 
         return $record;
