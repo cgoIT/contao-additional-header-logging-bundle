@@ -1,0 +1,21 @@
+# Composer
+/composer.lock
+/vendor/
+
+# PhpUnit
+/.phpunit.result.cache
+/phpunit.xml
+
+# Tools
+/tools/*/vendor
+
+# Test data
+/external-robots.txt
+
+# PHPStorm
+.idea/
+.tool-versions
+
+# Mac
+.DS_Store
+
