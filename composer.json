@@ -3,7 +3,7 @@
   "description": "Extends the Contao log by adding configurable HTTP request headers for debugging and analysis.",
   "license": "LGPL-3.0-or-later",
   "type": "contao-bundle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Carsten Götzinger",
